@@ -21,6 +21,14 @@ interface BillReminderProps {
 }
 
 const BillReminder = ({ upcomingBills }: BillReminderProps) => {
+  const handleAddBill = () => {
+    alert("Add new bill functionality would go here");
+  };
+
+  const handleToggleNotification = (type: string) => {
+    alert(`${type} notifications toggled`);
+  };
+
   return (
     <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
       <div className="lg:col-span-2">
@@ -73,7 +81,7 @@ const BillReminder = ({ upcomingBills }: BillReminderProps) => {
                     <p className="text-gray-600">Set up a new recurring payment</p>
                   </div>
                 </div>
-                <Button variant="outline" className="p-3 text-lg">Add</Button>
+                <Button onClick={handleAddBill} variant="outline" className="p-3 text-lg">Add</Button>
               </div>
             </div>
           </CardContent>
@@ -89,15 +97,15 @@ const BillReminder = ({ upcomingBills }: BillReminderProps) => {
             <div className="space-y-4">
               <div className="flex items-center justify-between p-4 rounded-lg bg-gradient-to-r from-purple-50 to-pink-50">
                 <span className="font-bold">Email Notifications</span>
-                <Button variant="outline" size="lg" className="text-lg">On</Button>
+                <Button onClick={() => handleToggleNotification("Email")} variant="outline" size="lg" className="text-lg">On</Button>
               </div>
               <div className="flex items-center justify-between p-4 rounded-lg bg-gradient-to-r from-purple-50 to-pink-50">
                 <span className="font-bold">SMS Alerts</span>
-                <Button variant="outline" size="lg" className="text-lg">On</Button>
+                <Button onClick={() => handleToggleNotification("SMS")} variant="outline" size="lg" className="text-lg">On</Button>
               </div>
               <div className="flex items-center justify-between p-4 rounded-lg bg-gradient-to-r from-purple-50 to-pink-50">
                 <span className="font-bold">Push Notifications</span>
-                <Button variant="outline" size="lg" className="text-lg">On</Button>
+                <Button onClick={() => handleToggleNotification("Push")} variant="outline" size="lg" className="text-lg">On</Button>
               </div>
             </div>
           </CardContent>

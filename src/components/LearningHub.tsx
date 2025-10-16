@@ -43,6 +43,14 @@ const LearningHub = () => {
     }
   ];
 
+  const handleStartLearning = (moduleTitle: string) => {
+    alert(`Starting ${moduleTitle} module...`);
+  };
+
+  const handleScheduleConsultation = () => {
+    alert("Scheduling consultation with financial advisor...");
+  };
+
   return (
     <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
       <div className="lg:col-span-2">
@@ -69,6 +77,7 @@ const LearningHub = () => {
                       {module.description}
                     </p>
                     <Button 
+                      onClick={() => handleStartLearning(module.title)}
                       variant="outline" 
                       className={`w-full bg-gradient-to-r ${module.color} text-white border-0 hover:opacity-90`}
                     >
@@ -96,7 +105,10 @@ const LearningHub = () => {
               <p className="text-gray-600 mt-2 mb-6">
                 Get personalized financial advice from our certified advisors.
               </p>
-              <Button className="w-full bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white p-3 text-lg">
+              <Button 
+                onClick={handleScheduleConsultation}
+                className="w-full bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white p-3 text-lg"
+              >
                 <Users className="mr-2 h-5 w-5" />
                 Schedule Consultation
               </Button>

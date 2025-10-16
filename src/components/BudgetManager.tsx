@@ -89,6 +89,14 @@ const BudgetManager = ({
     }
   };
 
+  const handleSetBudgetLimits = () => {
+    alert("Budget limits functionality would go here");
+  };
+
+  const handleScheduleConsultation = () => {
+    alert("Scheduling consultation with financial advisor...");
+  };
+
   return (
     <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
       <div className="lg:col-span-2">
@@ -219,7 +227,7 @@ const BudgetManager = ({
                 </div>
               ))}
             </div>
-            <Button className="w-full mt-6 bg-gradient-to-r from-emerald-500 to-green-600 hover:from-emerald-600 hover:to-green-700 text-white p-3 text-lg">
+            <Button onClick={handleSetBudgetLimits} className="w-full mt-6 bg-gradient-to-r from-emerald-500 to-green-600 hover:from-emerald-600 hover:to-green-700 text-white p-3 text-lg">
               Set Budget Limits
             </Button>
           </CardContent>

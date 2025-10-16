@@ -57,6 +57,14 @@ const FinancialDashboard = ({
 
   const savingsProgress = Math.min(100, (currentSavings / savingsGoal) * 100);
 
+  const handleAddTransaction = () => {
+    alert("Add new transaction functionality would go here");
+  };
+
+  const handleSetBudgetLimits = () => {
+    alert("Set budget limits functionality would go here");
+  };
+
   return (
     <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
       <Card className="bg-gradient-to-r from-green-400 to-emerald-500 text-white shadow-lg">
@@ -95,7 +103,13 @@ const FinancialDashboard = ({
       <div className="md:col-span-2">
         <Card className="shadow-lg">
           <CardHeader>
-            <CardTitle className="text-xl">Recent Transactions</CardTitle>
+            <div className="flex justify-between items-center">
+              <CardTitle className="text-xl">Recent Transactions</CardTitle>
+              <Button onClick={handleAddTransaction} className="flex items-center">
+                <Plus className="mr-2 h-4 w-4" />
+                Add Transaction
+              </Button>
+            </div>
           </CardHeader>
           <CardContent>
             <div className="space-y-4">
@@ -156,7 +170,12 @@ const FinancialDashboard = ({
         
         <Card className="shadow-lg">
           <CardHeader>
-            <CardTitle className="text-xl">Savings Goal</CardTitle>
+            <div className="flex justify-between items-center">
+              <CardTitle className="text-xl">Savings Goal</CardTitle>
+              <Button onClick={handleSetBudgetLimits} className="text-sm">
+                Set Limits
+              </Button>
+            </div>
           </CardHeader>
           <CardContent>
             <div className="space-y-4">
