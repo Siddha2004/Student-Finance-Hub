@@ -24,50 +24,56 @@ const BillReminder = ({ upcomingBills }: BillReminderProps) => {
   return (
     <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
       <div className="lg:col-span-2">
-        <Card>
-          <CardHeader>
-            <CardTitle>
-              <div className="flex items-center">
-                <Calendar className="mr-2 h-5 w-5" />
-                Upcoming Bills & Reminders
-              </div>
+        <Card className="shadow-lg">
+          <CardHeader className="bg-gradient-to-r from-blue-500 to-indigo-600 text-white">
+            <CardTitle className="text-xl flex items-center">
+              <Calendar className="mr-2 h-6 w-6" />
+              Upcoming Bills & Reminders
             </CardTitle>
           </CardHeader>
-          <CardContent>
+          <CardContent className="pt-6">
             <div className="space-y-4">
               {upcomingBills.map((bill) => (
-                <div key={bill.id} className="flex items-center justify-between p-4 border rounded-lg">
+                <div key={bill.id} className="flex items-center justify-between p-5 border rounded-lg bg-gradient-to-r from-blue-50 to-indigo-50">
                   <div className="flex items-center">
-                    <div className="bg-blue-100 p-2 rounded-lg mr-4">
-                      <Bell className="h-5 w-5 text-blue-600" />
+                    <div className="bg-blue-100 p-3 rounded-lg mr-4">
+                      <Bell className="h-6 w-6 text-blue-600" />
                     </div>
                     <div>
-                      <p className="font-medium">{bill.title}</p>
-                      <p className="text-sm text-gray-500">Due: {bill.dueDate}</p>
+                      <p className="font-bold text-lg">{bill.title}</p>
+                      <p className="text-gray-600">Due: {bill.dueDate}</p>
                     </div>
                   </div>
                   <div className="text-right">
-                    <p className="font-medium">₹{bill.amount.toLocaleString()}</p>
-                    <Badge variant={bill.daysLeft <= 3 ? "destructive" : "secondary"}>
+                    <p className="font-bold text-xl">₹{bill.amount.toLocaleString()}</p>
+                    <Badge 
+                      className={`text-sm px-3 py-1 ${
+                        bill.daysLeft <= 3 
+                          ? 'bg-red-500 hover:bg-red-600' 
+                          : bill.daysLeft <= 7
+                          ? 'bg-amber-500 hover:bg-amber-600'
+                          : 'bg-green-500 hover:bg-green-600'
+                      }`}
+                    >
                       {bill.daysLeft} days left
                     </Badge>
                   </div>
                 </div>
               ))}
               
-              <Separator />
+              <Separator className="my-4" />
               
-              <div className="flex items-center justify-between p-4 border rounded-lg">
+              <div className="flex items-center justify-between p-5 border rounded-lg bg-gradient-to-r from-green-50 to-emerald-50">
                 <div className="flex items-center">
-                  <div className="bg-green-100 p-2 rounded-lg mr-4">
-                    <Plus className="h-5 w-5 text-green-600" />
+                  <div className="bg-green-100 p-3 rounded-lg mr-4">
+                    <Plus className="h-6 w-6 text-green-600" />
                   </div>
                   <div>
-                    <p className="font-medium">Add New Bill</p>
-                    <p className="text-sm text-gray-500">Set up a new recurring payment</p>
+                    <p className="font-bold text-lg">Add New Bill</p>
+                    <p className="text-gray-600">Set up a new recurring payment</p>
                   </div>
                 </div>
-                <Button variant="outline">Add</Button>
+                <Button variant="outline" className="p-3 text-lg">Add</Button>
               </div>
             </div>
           </CardContent>
@@ -75,45 +81,45 @@ const BillReminder = ({ upcomingBills }: BillReminderProps) => {
       </div>
       
       <div>
-        <Card>
-          <CardHeader>
-            <CardTitle>Bill Reminders</CardTitle>
+        <Card className="shadow-lg">
+          <CardHeader className="bg-gradient-to-r from-purple-500 to-pink-500 text-white">
+            <CardTitle className="text-xl">Bill Reminders</CardTitle>
           </CardHeader>
-          <CardContent>
+          <CardContent className="pt-6">
             <div className="space-y-4">
-              <div className="flex items-center justify-between">
-                <span>Email Notifications</span>
-                <Button variant="outline" size="sm">On</Button>
+              <div className="flex items-center justify-between p-4 rounded-lg bg-gradient-to-r from-purple-50 to-pink-50">
+                <span className="font-bold">Email Notifications</span>
+                <Button variant="outline" size="lg" className="text-lg">On</Button>
               </div>
-              <div className="flex items-center justify-between">
-                <span>SMS Alerts</span>
-                <Button variant="outline" size="sm">On</Button>
+              <div className="flex items-center justify-between p-4 rounded-lg bg-gradient-to-r from-purple-50 to-pink-50">
+                <span className="font-bold">SMS Alerts</span>
+                <Button variant="outline" size="lg" className="text-lg">On</Button>
               </div>
-              <div className="flex items-center justify-between">
-                <span>Push Notifications</span>
-                <Button variant="outline" size="sm">On</Button>
+              <div className="flex items-center justify-between p-4 rounded-lg bg-gradient-to-r from-purple-50 to-pink-50">
+                <span className="font-bold">Push Notifications</span>
+                <Button variant="outline" size="lg" className="text-lg">On</Button>
               </div>
             </div>
           </CardContent>
         </Card>
         
-        <Card className="mt-6">
-          <CardHeader>
-            <CardTitle>Payment History</CardTitle>
+        <Card className="mt-6 shadow-lg">
+          <CardHeader className="bg-gradient-to-r from-teal-500 to-cyan-600 text-white">
+            <CardTitle className="text-xl">Payment History</CardTitle>
           </CardHeader>
-          <CardContent>
-            <div className="space-y-3">
-              <div className="flex justify-between">
-                <span>Internet Bill</span>
-                <span className="text-green-600">Paid</span>
+          <CardContent className="pt-6">
+            <div className="space-y-4">
+              <div className="flex justify-between items-center p-3 rounded-lg bg-gradient-to-r from-teal-50 to-cyan-50">
+                <span className="font-bold">Internet Bill</span>
+                <span className="text-green-600 font-bold">Paid</span>
               </div>
-              <div className="flex justify-between">
-                <span>Phone Bill</span>
-                <span className="text-green-600">Paid</span>
+              <div className="flex justify-between items-center p-3 rounded-lg bg-gradient-to-r from-teal-50 to-cyan-50">
+                <span className="font-bold">Phone Bill</span>
+                <span className="text-green-600 font-bold">Paid</span>
               </div>
-              <div className="flex justify-between">
-                <span>Hostel Rent</span>
-                <span className="text-green-600">Paid</span>
+              <div className="flex justify-between items-center p-3 rounded-lg bg-gradient-to-r from-teal-50 to-cyan-50">
+                <span className="font-bold">Hostel Rent</span>
+                <span className="text-green-600 font-bold">Paid</span>
               </div>
             </div>
           </CardContent>
