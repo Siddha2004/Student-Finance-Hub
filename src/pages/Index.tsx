@@ -7,7 +7,10 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { 
   Users, 
   BookOpen,
-  TrendingUp
+  TrendingUp,
+  Phone,
+  MessageCircle,
+  Calendar
 } from "lucide-react";
 import { MadeWithDyad } from "@/components/made-with-dyad";
 import FinancialDashboard from "@/components/FinancialDashboard";
@@ -48,10 +51,14 @@ const Index = () => {
               Take control of your finances with our all-in-one platform
             </p>
           </div>
-          <div className="mt-6 md:mt-0">
-            <Button className="bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-600 hover:to-indigo-700 text-white p-3 text-lg shadow-lg">
-              <Users className="mr-2 h-5 w-5" />
-              Connect with Advisor
+          <div className="mt-6 md:mt-0 flex space-x-3">
+            <Button className="bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-600 hover:to-indigo-700 text-white p-3 text-lg shadow-lg flex items-center">
+              <Phone className="mr-2 h-5 w-5" />
+              Call Now
+            </Button>
+            <Button className="bg-gradient-to-r from-purple-500 to-pink-600 hover:from-purple-600 hover:to-pink-700 text-white p-3 text-lg shadow-lg flex items-center">
+              <MessageCircle className="mr-2 h-5 w-5" />
+              Chat
             </Button>
           </div>
         </div>
