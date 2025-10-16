@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -39,6 +39,18 @@ const Index = () => {
   const [savingsGoal, setSavingsGoal] = useState(5000);
   const [currentSavings, setCurrentSavings] = useState(1800);
 
+  const handleCallNow = () => {
+    // In a real app, this would initiate a phone call
+    alert("Calling financial advisor now...");
+    console.log("Initiating call to financial advisor");
+  };
+
+  const handleChat = () => {
+    // In a real app, this would open a chat window
+    alert("Opening chat with financial advisor...");
+    console.log("Opening chat with financial advisor");
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-cyan-50">
       <div className="container mx-auto px-4 py-8">
@@ -52,11 +64,17 @@ const Index = () => {
             </p>
           </div>
           <div className="mt-6 md:mt-0 flex space-x-3">
-            <Button className="bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-600 hover:to-indigo-700 text-white p-3 text-lg shadow-lg flex items-center">
+            <Button 
+              onClick={handleCallNow}
+              className="bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-600 hover:to-indigo-700 text-white p-3 text-lg shadow-lg flex items-center"
+            >
               <Phone className="mr-2 h-5 w-5" />
               Call Now
             </Button>
-            <Button className="bg-gradient-to-r from-purple-500 to-pink-600 hover:from-purple-600 hover:to-pink-700 text-white p-3 text-lg shadow-lg flex items-center">
+            <Button 
+              onClick={handleChat}
+              className="bg-gradient-to-r from-purple-500 to-pink-600 hover:from-purple-600 hover:to-pink-700 text-white p-3 text-lg shadow-lg flex items-center"
+            >
               <MessageCircle className="mr-2 h-5 w-5" />
               Chat
             </Button>
